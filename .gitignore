@@ -3,3 +3,4 @@ tmp/*
 messages
 token
 query/last_timestamp
+nohup.out
