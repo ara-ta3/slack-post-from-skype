@@ -9,7 +9,7 @@ do
     text=`echo $line|$jq .text`
     slackName=`sh $s/get_slack_name.sh $name`
     slackIcon=`sh $s/get_slack_icon.sh $name`
-    echo curl https://slack.com/api/chat.postMessage \
+    curl https://slack.com/api/chat.postMessage \
         -X POST \
         -d token="$token" \
         -d channel="#vg14crew" \
