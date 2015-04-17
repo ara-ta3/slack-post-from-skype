@@ -6,3 +6,9 @@ start-get-messages:
 
 start-fluentd:
 	nohup fluentd -c fluent.conf &
+
+search-fluent-process:
+	ps aux|grep fluent
+
+search-query-process:
+	ps aux|grep query
