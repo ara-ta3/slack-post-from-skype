@@ -7,6 +7,9 @@ start-get-messages:
 start-fluentd:
 	nohup fluentd -c fluent.conf &
 
+start-slack-polling:
+	nohup sh skypescript/run.sh &
+
 search-fluent-process:
 	ps aux|grep fluent
 
