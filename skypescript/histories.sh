@@ -33,8 +33,9 @@ getTargetName() {
 
 length=`echo $result|$jq ".messages|length"`
 if [ $length -gt 0 ]; then
-    oldest=`echo $result|$jq '.messages[0].ts'`
-    nameAndTexts=`echo $result|$jq '.messages|map(.subtype != "bot_message")|map(.user + ","+ .text)|.[]|tostring'`
+    oldest=`echo $result|$jq '.messages[0].ts'|xargs echo`
+    nameAndTexts=`echo $result|$jq '.messages|map(select(.subtype != "bot_message"))|map(.user + ","+ .text)|.[]|tostring'`
+    echo $nameAndTexts
     for nameAndText in $nameAndTexts; do
         text=`echo $nameAndText|xargs echo`
         vals=( `echo $text | tr -s ',' ' '`)

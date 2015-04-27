@@ -15,3 +15,6 @@ search-fluent-process:
 
 search-query-process:
 	ps aux|grep query
+
+search-skype-polling:
+	ps aux|grep skypescript
