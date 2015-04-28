@@ -41,7 +41,9 @@ if [ $length -gt 0 ]; then
         vals=( `echo $text | tr -s ',' ' '`)
         user=`getTargetName ${vals[0]}`
         message=${vals[1]}
-        sh $s/post.sh $user $message
+        if [ -n "$message" ]; then
+            sh $s/post.sh $user $message
+        fi
     done
     echo $oldest > $s/latest
 else

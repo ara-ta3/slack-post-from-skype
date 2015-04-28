@@ -19,6 +19,10 @@ getTargetIcon() {
 noIcon=`getDefaultIcon`
 target=`echo $1|sed -e 's/\.//g'`
 icon=`getTargetIcon $target`
+if [ -z $icon ]; then
+    icon='null'
+fi
+
 if [ $icon == "null" ]; then
     icon=$noIcon
 fi
